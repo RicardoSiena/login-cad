@@ -43,10 +43,10 @@ function salvarUser(){
 
  // Inicia a tabela com os cabeçalhos de 'Nome Usuário' e 'Ações'
 function criarlista(){
-    let tabela = document.getElementById ('tabela').innerHTML = "<tr><th>Nome Usuário</th> <th>Email</th> </tr><th>Ações</th>"
+    let tabela = document.getElementById ('tabela').innerHTML = "<tr><th>Nome Usuário</th> <th>Email</th> <th>Ações</th> </tr>"
     
     for(let i = 0; i <= (dadosLista.length-1) ; i++){
-        tabela += "<tr><td>" + dadosLista [i] +  "<td></td>" + salvarEmail + "</td><td><button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)'>Editar</button><button type='button' onclick='excluir(this.parentNode.parentNode.rowIndex)'>excluir</button></td></tr>";
+        tabela += "<tr><td>" + dadosLista [i] +  "</td><td>" + salvarEmail[i] + "</td><td><button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)'>Editar</button><button type='button' onclick='excluir(this.parentNode.parentNode.rowIndex)'>excluir</button></td></tr>";
         // O  i É USADO PARA ACESSAR A POSIÇÃO DO ARRAY
         document.getElementById('tabela').innerHTML = tabela;
     }
@@ -58,9 +58,9 @@ function criarlista(){
 function editar(i){
     // Coloca o nome do usuário selecionado no campo de input para edição
     document.getElementById('nomeUser').value = dadosLista[(i -1 )];
-    dadosLista.splice(dadosLista[(i - 1)], 1);}
     document.getElementById('emailUser').value = salvarEmail[(i -1 )];
     salvarEmail.splice(salvarEmail[(i - 1)], 1);
+    dadosLista.splice(dadosLista[(i - 1)], 1);}
     // Remove o nome do array para ser substituído pela nova versão editada
     
 
@@ -69,16 +69,17 @@ function editar(i){
 //FUNÇÃO PARA EXCLUIR NOME DA LISTA
 function excluir(i){
     dadosLista.splice((i-1), 1)
+
     // Remove o nome do array 'dadosLista' na posição selecionada
     document.getElementById('tabela').deleteRow(i);
-    salvarEmail.splice((i - 1), 1);
     // Limpa o campo de nome do usuário após excluir
     document.getElementById('nomeUser').value = "";
+    document.getElementById('email').value = "";
 }
 function checarEmail(){
-    if(document.forms[0].email.value == "" ||
-       document.forms[0].email.value.indexOf("@") == -1 ||
-       document.forms[0].email.value.indexOf(".") == -1)
+    if(document.forms[0].salvarEmail.value == "" ||
+       document.forms[0].salvarEmail.value.indexOf("@") == -1 ||
+       document.forms[0].salvarEmail.value.indexOf(".") == -1)
        {
         alert("Por favor, informe um email válido");
         return false;
@@ -87,9 +88,9 @@ function checarEmail(){
 // CÓDIGO DE VERIFICAÇÃO DE EMAIL DIGITADO
  
 function verifica(){
-    if(document.forms[0].email.value == 0){
+    if(document.forms[0].salvarEmail.value == 0){
         alert("Por favor, corno, informe um e-mail");
-        document.frmEnvia.email.focus();
+        document.frmEnvia.salvarEmail.focus();
         return false;
     }
     return true;
