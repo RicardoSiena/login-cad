@@ -49,6 +49,8 @@ Permite a edição de um nome na lista. Remove o nome antigo do array e coloca-o
 Exclui um nome do array e remove a linha correspondente da tabela HTML.
 
 
+
+
 ## Fontes
 
 https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/splice<br>
