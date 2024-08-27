@@ -12,23 +12,26 @@
  
  <body>
     <div class="container col-4">
-        <label for="">Nome:</label>
-        <input type="text" id="nomeUser" class="form-control"> <br> 
+        <h3>Cadastro</h3>
+        <div>
+            <label for="">Nome:</label>
+            <input type="text" class="form-control" id="nomeUser"> <br> 
+        </div>
         <div class="container">
         <label for="">Email:</label>
         <form action="" name="frmEnvia" onsubmit="return (verifica())">
-        <input type="text" id="emailUser" class="form-control" name="email" onblur="checarEmail()"> <br> 
+        <input type="text" class="form-control" id="emailUser" name="email" onblur="checarEmail()"> <br> 
         <button type="button" onclick="salvarUser()"class="btn-primary"> SALVAR </button>
-    </div> <br>
+    </div> 
      
     </form>
     <div id="email"></div>
     <div class="container">
         <table class="table table-striped" id="tabela">
             <tr>
-                <th> Nome Usuário</th>
-                <th> Email </th>
-                <th> Ações </th>
+                <th>Nome Usuário</th>
+                <th> Email </th> <br>
+                <th> Ações </th> 
             </tr>
         </table>
     </div>
